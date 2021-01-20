@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfScheduler.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:local="clr-namespace:WpfScheduler"
+    WindowStartupLocation="CenterScreen" Height="600" Width="950" >
+
+    <Window.DataContext>
+        <local:SchedulerViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <syncfusion:SfScheduler x:Name="Schedule"
+                    ViewType="Week"
+                    ItemsSource="{Binding Meetings}">
+            <syncfusion:SfScheduler.AppointmentMapping>
+                <syncfusion:AppointmentMapping 
+                   Subject="EventName"
+                   StartTime="From"
+                   EndTime="To"
+                   Id="Id"
+                   AppointmentBackground="BackgroundColor"
+                   Foreground="ForegroundColor"
+                   RecurrenceRule="RecurrenceRule"
+                   RecurrenceExceptionDates="RecurrenceExceptions"
+                    RecurrenceId="RecurrenceId">
+                </syncfusion:AppointmentMapping>
+            </syncfusion:SfScheduler.AppointmentMapping>
+        </syncfusion:SfScheduler>
+    </Grid>
+</Window>
